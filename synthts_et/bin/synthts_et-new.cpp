@@ -8,7 +8,7 @@
 extern "C" {
 #include "../include/HTS_engine.h"
 }
-#include "estsynth.h"
+
 
 typedef unsigned char uchar;
 
@@ -89,57 +89,38 @@ std::vector<std::string> to_vector(CFSArray<CFSWString> arr) {
 }
 
 
+class EstonianSpeechSynthesis {
+    CDisambiguator Disambiguator;
+    CLinguistic Linguistic;
+    HTS_Engine engine;
+    char **fn_voices;
+    double speed = 1.1;
+    size_t fr = 48000;
+    size_t fp = 240;
+    float alpha = 0.55;
+    float beta = 0.0;
+    float ht = 2.0;
+    float th = 0.5;
+    float gvw1 = 1.0;
+    float gvw2 = 1.2;
+    bool write_raw = false;
+
+public:
+    EstonianSpeechSynthesis ();
+    bool convertTextToWave (char* textToSpeak, const char* wavfilename);
+};
 
     EstonianSpeechSynthesis::EstonianSpeechSynthesis () {
         fn_voices = 0;
     }
 
-    bool EstonianSpeechSynthesis::initialize () {
- 
+
+    bool EstonianSpeechSynthesis::convertTextToWave (char* textToSpeak, const char* wavfilename) {
+        // Synthesis parameters
         CFSAString LexFileName ("dct/et.dct");
         CFSAString LexDFileName ("dct/et3.dct");
         std::string voiceFileName ("htsvoices/eki_et_tnu.htsvoice"); 
 
-        Disambiguator = new CDisambiguator();
-        Linguistic = new CLinguistic();
-        engine = new HTS_Engine ();
-
-        FSCInit();
-        fn_voices = (char **) malloc(sizeof (char *));
-        fn_voices[0] = strdup(voiceFileName.c_str());
-
-        Linguistic->Open(LexFileName);
-        Disambiguator->Open(LexDFileName);
-        HTS_Engine_initialize(engine);
-
-        if (HTS_Engine_load(engine, fn_voices, 1) != TRUE) {
-            fprintf(stderr, "Viga: puudub *.htsvoice. %p\n", fn_voices[0]);
-            free(fn_voices);
-            HTS_Engine_clear(engine);
-            return false;
-        }
-        free(fn_voices);
-
-        HTS_Engine_set_sampling_frequency(engine, (size_t) fr);
-        HTS_Engine_set_phoneme_alignment_flag(engine, FALSE);
-        HTS_Engine_set_fperiod(engine, (size_t) fp);
-        HTS_Engine_set_alpha(engine, alpha);
-        HTS_Engine_set_beta(engine, beta);
-        HTS_Engine_set_speed(engine, speed);
-        HTS_Engine_add_half_tone(engine, ht);
-        HTS_Engine_set_msd_threshold(engine, 1, th);
-        HTS_Engine_set_gv_weight(engine, 0, gvw1);
-        HTS_Engine_set_gv_weight(engine, 1, gvw2);
-    }
-
-    bool EstonianSpeechSynthesis::destroy() {
-        HTS_Engine_clear(engine);
-        Linguistic->Close();
-        FSCTerminate();
-    }
-
-    size_t EstonianSpeechSynthesis::convertTextToWave (char* textToSpeak, const char* wavfilename) {
- 
         // Text to be converted
         CFSWString text (UTF8_to_WChar(textToSpeak));
         text = DealWithText(text);
@@ -150,7 +131,35 @@ std::vector<std::string> to_vector(CFSArray<CFSWString> arr) {
             fclose(file);
             remove(wavfilename);
         }
-    
+       
+        FSCInit();
+        fn_voices = (char **) malloc(sizeof (char *));
+        fn_voices[0] = strdup(voiceFileName.c_str());
+
+        Linguistic.Open(LexFileName);
+        Disambiguator.Open(LexDFileName);
+	
+        HTS_Engine_initialize(&engine);
+
+        if (HTS_Engine_load(&engine, fn_voices, 1) != TRUE) {
+            fprintf(stderr, "Viga: puudub *.htsvoice. %p\n", fn_voices[0]);
+            free(fn_voices);
+            HTS_Engine_clear(&engine);
+            return false;
+        }
+        free(fn_voices);
+
+        HTS_Engine_set_sampling_frequency(&engine, (size_t) fr);
+        HTS_Engine_set_phoneme_alignment_flag(&engine, FALSE);
+        HTS_Engine_set_fperiod(&engine, (size_t) fp);
+        HTS_Engine_set_alpha(&engine, alpha);
+        HTS_Engine_set_beta(&engine, beta);
+        HTS_Engine_set_speed(&engine, speed);
+        HTS_Engine_add_half_tone(&engine, ht);
+        HTS_Engine_set_msd_threshold(&engine, 1, th);
+        HTS_Engine_set_gv_weight(&engine, 0, gvw1);
+        HTS_Engine_set_gv_weight(&engine, 1, gvw2);
+
         CFSArray<CFSWString> res = do_utterances(text);
 
         INTPTR data_size = 0;
@@ -158,10 +167,10 @@ std::vector<std::string> to_vector(CFSArray<CFSWString> arr) {
         FILE *outfp = fopen(wavfilename, "wb");
 
         if (!write_raw)
-            HTS_Engine_write_header(engine, outfp, 1);
+            HTS_Engine_write_header(&engine, outfp, 1);
         for (INTPTR i = 0; i < res.GetSize(); i++) {
 
-            CFSArray<CFSWString> label = do_all(res[i], false, false, *Disambiguator, *Linguistic);
+            CFSArray<CFSWString> label = do_all(res[i], false, false, Disambiguator, Linguistic);
 
             std::vector<std::string> v;
             v = to_vector(label);
@@ -171,35 +180,32 @@ std::vector<std::string> to_vector(CFSArray<CFSWString> arr) {
 
             size_t n_lines = vc.size();
 
-            if (HTS_Engine_synthesize_from_strings(engine, &vc[0], n_lines) != TRUE) {
+            if (HTS_Engine_synthesize_from_strings(&engine, &vc[0], n_lines) != TRUE) {
                 fprintf(stderr, "Viga: süntees ebaonnestus.\n");            
-                HTS_Engine_clear(engine);
+                HTS_Engine_clear(&engine);
                 return false;
             }
 
             clean_char_vector(vc);
-            data_size += HTS_Engine_engine_speech_size(engine);
-
-
+            data_size += HTS_Engine_engine_speech_size(&engine);
  
-            HTS_Engine_save_generated_speech(engine, outfp);
-            HTS_Engine_refresh(engine);
+            HTS_Engine_save_generated_speech(&engine, outfp);
+            HTS_Engine_refresh(&engine);
         } //synth loop
 
         if (!write_raw)
-            HTS_Engine_write_header(engine, outfp, data_size);
-
+            HTS_Engine_write_header(&engine, outfp, data_size);
         fclose(outfp);
 
-        float numSeconds = ceil((double)data_size / (double)sizeof(short) / (double)fr);
-        return size_t(numSeconds);
+        HTS_Engine_clear(&engine);
+        Linguistic.Close();
+        FSCTerminate();
     }
 
-/*
+
 int main(int argc, char* argv[]) {
 
     EstonianSpeechSynthesis ess;
-    ess.initialize();
     if (!ess.convertTextToWave (argv[1], argv[2])) {
         fprintf (stderr, "No conversion today, sry.\n");
     }
@@ -207,5 +213,5 @@ int main(int argc, char* argv[]) {
     return 0;
 
 }
-*/
+
 

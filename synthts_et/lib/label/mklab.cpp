@@ -333,7 +333,7 @@ void print_u(utterance_struct u) {
     wprintf(L"\n");
 }
 
-CFSArray<CFSWString> do_all(CFSWString utt, bool print_label, bool print_utt) {
+CFSArray<CFSWString> do_all(CFSWString utt, bool print_label, bool print_utt, CDisambiguator& Disambiguator, CLinguistic& Linguistic) {
     CFSArray<CFSWString> res;
     CFSArray<CPTWord> PTW;
     utterance_struct u;
