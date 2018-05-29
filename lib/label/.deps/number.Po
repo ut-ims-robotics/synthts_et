@@ -1,0 +1,409 @@
+number.o: number.cpp /usr/include/stdc-predef.h ../etana/proof.h \
+ ../etana/etmrf.h ../etana/mrf-mrf.h ../etana/ahel2.h ../etana/post-fsc.h \
+ /usr/include/assert.h /usr/include/features.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h /usr/include/time.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h /usr/include/xlocale.h \
+ ../etana/../fsc/fsc.h ../etana/../fsc/stdfsc.h /usr/include/stdio.h \
+ /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/bits/select2.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib.h /usr/include/string.h \
+ /usr/include/x86_64-linux-gnu/bits/string3.h /usr/include/ctype.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar2.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_val.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
+ /usr/include/x86_64-linux-gnu/bits/inf.h \
+ /usr/include/x86_64-linux-gnu/bits/nan.h \
+ /usr/include/x86_64-linux-gnu/bits/mathdef.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathinline.h /usr/include/pthread.h \
+ /usr/include/sched.h /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h /usr/include/signal.h \
+ /usr/include/x86_64-linux-gnu/bits/signum.h \
+ /usr/include/x86_64-linux-gnu/bits/siginfo.h \
+ /usr/include/x86_64-linux-gnu/bits/sigaction.h \
+ /usr/include/x86_64-linux-gnu/bits/sigcontext.h \
+ /usr/include/x86_64-linux-gnu/bits/sigstack.h \
+ /usr/include/x86_64-linux-gnu/sys/ucontext.h \
+ /usr/include/x86_64-linux-gnu/bits/sigthread.h /usr/include/dlfcn.h \
+ /usr/include/x86_64-linux-gnu/bits/dlfcn.h \
+ /usr/include/x86_64-linux-gnu/sys/time.h ../etana/../fsc/fstype.h \
+ ../etana/../fsc/fscinit.h ../etana/../fsc/fstrace.h \
+ ../etana/../fsc/fsblockalloc.h ../etana/../fsc/fsmemory.h \
+ ../etana/../fsc/fsdata.h ../etana/../fsc/fsstream.h \
+ ../etana/../fsc/fsexception.h ../etana/../fsc/fsstring.h \
+ ../etana/../fsc/fsthread.h ../etana/../fsc/fsutil.h \
+ ../etana/../fsc/fsdll.h ../etana/../fsc/fsfile.h \
+ ../etana/../fsc/fslist.h ../etana/../fsc/fsfixalloc.h \
+ ../etana/../fsc/fshugeinteger.h ../etana/../fsc/fssmartptr.h \
+ ../etana/../fsc/fsstring2.h ../etana/../fsc/fstime.h \
+ ../etana/../fsc/fsvar.h ../etana/../fsc/fswav.h ../etana/tmplptrsrtfnd.h \
+ ../etana/viga.h /usr/include/errno.h \
+ /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/x86_64-linux-gnu/sys/param.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
+ /usr/include/x86_64-linux-gnu/asm/param.h \
+ /usr/include/asm-generic/param.h ../etana/etmrfverstr.h \
+ ../etana/suurused.h ../etana/pfscodepage.h ../etana/fsxstring.h \
+ ../etana/ctulem.h ../etana/mrflags.h ../etana/tloendid.h \
+ ../etana/rooma.h ../etana/tmplptrarrayblabla.h ../etana/cxxbs3.h \
+ ../etana/tmk2t.h ../etana/tyybid.h ../etana/result.h ../etana/ini_mrf.h \
+ ../etana/f-info.h ../etana/cxxcash.h ../etana/s6n0.h ../etana/tmk2tx.h \
+ ../etana/sonatk.h ../etana/mittesona.h ../etana/sloendid.h \
+ ../etana/adhoc.h ../etana/arva.h ../etana/silp.h ../etana/mrf2yh2mrf.h \
+ ../etana/etmrfyhh.h ../etana/t3common.h \
+ /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h ../etana/tmplarray.h \
+ ../etana/dctmetainf.h ../etana/pttype.h ../etana/ptword.h \
+ ../etana/suggestor.h ../etana/linguistic.h ../etana/morphinfo.h \
+ ../etana/disambiguator.h
+
+/usr/include/stdc-predef.h:
+
+../etana/proof.h:
+
+../etana/etmrf.h:
+
+../etana/mrf-mrf.h:
+
+../etana/ahel2.h:
+
+../etana/post-fsc.h:
+
+/usr/include/assert.h:
+
+/usr/include/features.h:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/time.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/x86_64-linux-gnu/bits/timex.h:
+
+/usr/include/xlocale.h:
+
+../etana/../fsc/fsc.h:
+
+../etana/../fsc/stdfsc.h:
+
+/usr/include/stdio.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap-16.h:
+
+/usr/include/x86_64-linux-gnu/sys/types.h:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigset.h:
+
+/usr/include/x86_64-linux-gnu/bits/select2.h:
+
+/usr/include/x86_64-linux-gnu/sys/sysmacros.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/alloca.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib.h:
+
+/usr/include/string.h:
+
+/usr/include/x86_64-linux-gnu/bits/string3.h:
+
+/usr/include/ctype.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:
+
+/usr/include/math.h:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
+
+/usr/include/x86_64-linux-gnu/bits/huge_val.h:
+
+/usr/include/x86_64-linux-gnu/bits/huge_valf.h:
+
+/usr/include/x86_64-linux-gnu/bits/huge_vall.h:
+
+/usr/include/x86_64-linux-gnu/bits/inf.h:
+
+/usr/include/x86_64-linux-gnu/bits/nan.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathdef.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathinline.h:
+
+/usr/include/pthread.h:
+
+/usr/include/sched.h:
+
+/usr/include/x86_64-linux-gnu/bits/sched.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+/usr/include/signal.h:
+
+/usr/include/x86_64-linux-gnu/bits/signum.h:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigaction.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigcontext.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigstack.h:
+
+/usr/include/x86_64-linux-gnu/sys/ucontext.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigthread.h:
+
+/usr/include/dlfcn.h:
+
+/usr/include/x86_64-linux-gnu/bits/dlfcn.h:
+
+/usr/include/x86_64-linux-gnu/sys/time.h:
+
+../etana/../fsc/fstype.h:
+
+../etana/../fsc/fscinit.h:
+
+../etana/../fsc/fstrace.h:
+
+../etana/../fsc/fsblockalloc.h:
+
+../etana/../fsc/fsmemory.h:
+
+../etana/../fsc/fsdata.h:
+
+../etana/../fsc/fsstream.h:
+
+../etana/../fsc/fsexception.h:
+
+../etana/../fsc/fsstring.h:
+
+../etana/../fsc/fsthread.h:
+
+../etana/../fsc/fsutil.h:
+
+../etana/../fsc/fsdll.h:
+
+../etana/../fsc/fsfile.h:
+
+../etana/../fsc/fslist.h:
+
+../etana/../fsc/fsfixalloc.h:
+
+../etana/../fsc/fshugeinteger.h:
+
+../etana/../fsc/fssmartptr.h:
+
+../etana/../fsc/fsstring2.h:
+
+../etana/../fsc/fstime.h:
+
+../etana/../fsc/fsvar.h:
+
+../etana/../fsc/fswav.h:
+
+../etana/tmplptrsrtfnd.h:
+
+../etana/viga.h:
+
+/usr/include/errno.h:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/x86_64-linux-gnu/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/x86_64-linux-gnu/sys/param.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/param.h:
+
+/usr/include/linux/param.h:
+
+/usr/include/x86_64-linux-gnu/asm/param.h:
+
+/usr/include/asm-generic/param.h:
+
+../etana/etmrfverstr.h:
+
+../etana/suurused.h:
+
+../etana/pfscodepage.h:
+
+../etana/fsxstring.h:
+
+../etana/ctulem.h:
+
+../etana/mrflags.h:
+
+../etana/tloendid.h:
+
+../etana/rooma.h:
+
+../etana/tmplptrarrayblabla.h:
+
+../etana/cxxbs3.h:
+
+../etana/tmk2t.h:
+
+../etana/tyybid.h:
+
+../etana/result.h:
+
+../etana/ini_mrf.h:
+
+../etana/f-info.h:
+
+../etana/cxxcash.h:
+
+../etana/s6n0.h:
+
+../etana/tmk2tx.h:
+
+../etana/sonatk.h:
+
+../etana/mittesona.h:
+
+../etana/sloendid.h:
+
+../etana/adhoc.h:
+
+../etana/arva.h:
+
+../etana/silp.h:
+
+../etana/mrf2yh2mrf.h:
+
+../etana/etmrfyhh.h:
+
+../etana/t3common.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/5/include/float.h:
+
+../etana/tmplarray.h:
+
+../etana/dctmetainf.h:
+
+../etana/pttype.h:
+
+../etana/ptword.h:
+
+../etana/suggestor.h:
+
+../etana/linguistic.h:
+
+../etana/morphinfo.h:
+
+../etana/disambiguator.h:
